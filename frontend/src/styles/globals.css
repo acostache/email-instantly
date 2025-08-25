@@ -1,0 +1,123 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 90px;
+    color: #fff;
+    padding-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+    border-right: 1px solid #e0e0e0;
+    z-index: 1;
+    background-color: white;
+    gap: 10px;
+
+    svg {
+        color: gray;
+        width: 30px;
+        height: 30px;
+    }
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+main {
+    margin-left: 90px;
+}
+
+/* Floating Action Button */
+.fab {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: none;
+    background: #1976d2; /* Material blue */
+    color: white;
+    font-size: 28px;
+    line-height: 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    cursor: pointer;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.fab:hover { background: #1565c0; }
+.fab:active { transform: translateY(1px); }
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+.modal {
+    width: 90%;
+    max-width: 520px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-bottom: 1px solid #eee;
+}
+.icon-button {
+    background: transparent;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+}
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px 20px 20px;
+}
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.field input, .field textarea {
+    font: inherit;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 8px;
+}
+.btn {
+    font: inherit;
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+.btn.primary { background: #1976d2; color: white; }
+.btn.primary:hover { background: #1565c0; }
+.btn.secondary { background: #f3f4f6; color: #111827; border-color: #e5e7eb; }
+.btn.secondary:hover { background: #e5e7eb; }

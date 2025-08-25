@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "@ai-sdk/openai": "^2.0.19",
+    "ai": "^5.0.22",
+    "dotenv": "^17.2.1",
+    "fastify": "^4.27.0",
+    "knex": "^3.1.0",
+    "sqlite3": "^5.1.7",
+    "zod": "^4.1.1"
+  },
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "migrate": "knex migrate:latest",
+    "start": "node index.js",
+    "dev": "PORT=3001 nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "type": "module"
+}
