@@ -58,26 +58,16 @@ export default function ComposeMailPage() {
     setAiLoading(true);
     setError(null);
     try {
-      // Route to assistant (backend)
-      const r1 = await fetch(`${backendUrl}/ai/router`, {
+      const r = await fetch(`${backendUrl}/ai/compose`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ prompt: aiPrompt.trim() }),
       });
-      const route = await r1.json();
-      if (!r1.ok) throw new Error(route?.error || 'Routing failed');
-
-      // Generate content (backend)
-      const r2 = await fetch(`${backendUrl}/ai/generate`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ assistant: route.assistant, prompt: aiPrompt.trim() }),
-      });
-      const gen = await r2.json();
-      if (!r2.ok) throw new Error(gen?.error || 'Generation failed');
+      const res = await r.json();
+      if (!r.ok) throw new Error(res?.error || 'AI compose failed');
 
       // Stream into fields
-      streamIntoFields(gen.subject || '', gen.body || '');
+      streamIntoFields(res.subject || '', res.body || '');
       setAiOpen(false);
       setAiPrompt('');
     } catch (e) {

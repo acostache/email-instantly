@@ -14,7 +14,6 @@ export default function Mails() {
         const r = await fetch('/api/emails');
         const data = await r.json();
         if (!r.ok) throw new Error(data?.error || 'Failed to load');
-        console.log({data})
         setEmails(data);
         // Do not auto-select any email by default
       } catch (e) {
